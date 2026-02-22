@@ -1,0 +1,23 @@
+.ranking-table {
+	display: flex;
+	gap: 16px;
+
+	&-group {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&-title {
+		font-size: 1rem;
+		margin-bottom: 8px;
+	}
+
+	&-list {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&-item {
+		margin: 2px 0;
+	}
+}

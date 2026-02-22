@@ -18,7 +18,7 @@
 
 // ------------------------------------------------- Styles & Assets ---------------------------------------------------
 import { useSelector, useDispatch } from 'react-redux';
-import './styles.scss';
+import './list.scss';
 import { setSelectedTimeControl } from '../../DataManagement/reducers/timeControlsReducer';
 // ---------------------------------------------------------------------------------------------------------------------
 

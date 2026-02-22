@@ -1,5 +1,6 @@
 import Carrousel from './components/Carrousel/Carrousel.jsx';
 import List from './components/List/List.jsx';
+import RankingTable from './components/RankingTable/RankingTable.jsx';
 import { useData } from './hooks/useData.js';
 
 export default function App() {
@@ -10,37 +11,9 @@ export default function App() {
 	return (
 		<main className='app'>
 			<h1>Classement</h1>
-
 			<Carrousel />
 			<List />
-
-			<div className='content'>
-				<div className='card'>
-					<div
-						style={{
-							display: 'flex',
-						}}
-					>
-						{rankByTimeControl.map(([key, values]) => {
-							return (
-								<div
-									style={{
-										display: 'flex',
-										flexDirection: 'column',
-									}}
-								>
-									{key}
-									{values.map((x) => (
-										<p>
-											{x.name} - {x.score}
-										</p>
-									))}
-								</div>
-							);
-						})}{' '}
-					</div>
-				</div>
-			</div>
+			<RankingTable rankByTimeControl={rankByTimeControl} />
 		</main>
 	);
 }

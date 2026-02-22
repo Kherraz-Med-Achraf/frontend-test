@@ -17,20 +17,39 @@
 // ---------------------------------------------------------------------------------------------------------------------
 
 // ------------------------------------------------- Styles & Assets ---------------------------------------------------
-import { useSelector } from 'react-redux';
-import './styles.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSelectedTimeControl } from '../../DataManagement/reducers/timeControlsReducer';
+import './carrousel.scss';
 // ---------------------------------------------------------------------------------------------------------------------
 
 const Carrousel = () => {
+	const dispatch = useDispatch();
+	const timeControls = useSelector(
+		(state) => state.timeControlsReducer.timeControls
+	);
 	const selectedTimeControl = useSelector(
 		(state) => state.timeControlsReducer.selectedTimeControl
 	);
 
+	const currentIndex = timeControls.indexOf(selectedTimeControl);
+
+	const handlePrev = () => {
+		const prevIndex =
+			currentIndex <= 0 ? timeControls.length - 1 : currentIndex - 1;
+		dispatch(setSelectedTimeControl(timeControls[prevIndex]));
+	};
+
+	const handleNext = () => {
+		const nextIndex =
+			currentIndex >= timeControls.length - 1 ? 0 : currentIndex + 1;
+		dispatch(setSelectedTimeControl(timeControls[nextIndex]));
+	};
+
 	return (
 		<div>
-			<button>{'<'}</button>
+			<button onClick={handlePrev}>{'<'}</button>
 			Carrousel : {selectedTimeControl}
-			<button>{'>'}</button>
+			<button onClick={handleNext}>{'>'}</button>
 		</div>
 	);
 };

@@ -20,7 +20,7 @@ export const timeControlsSlice = createSlice({
 	initialState,
 	reducers: {
 		setSelectedTimeControl(state, { payload }) {
-			return { ...state, selectedTimeControl: payload };
+			state.selectedTimeControl = payload;
 		},
 		setTimeControls(state, action) {
 			state.timeControls = action.payload;
